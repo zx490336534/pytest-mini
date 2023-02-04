@@ -157,6 +157,6 @@ def case_end():
 def mini():
     with allure.step("初始化小程序"):
         mini = Mini()
-        mini.open()
+        mini.open(Constant.CONFIG)
     yield mini
     mini.quit()

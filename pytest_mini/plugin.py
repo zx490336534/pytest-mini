@@ -14,9 +14,10 @@ class Plugin:
     pass
 
 
-def plugins(project_path="", dev_tool_path=""):
+def plugins(project_path="", dev_tool_path="", config=None):
     Constant.BASE_PATH = os.path.dirname(inspect.stack()[1].filename)
     Constant.PROJECT_PATH = project_path
     Constant.DEV_TOOL_PATH = dev_tool_path
+    Constant.CONFIG = config
     constant = Constant()
     return ["pytest_mini.fixture"]
