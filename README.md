@@ -103,3 +103,5 @@ if not os.getenv("BUILD_URL"):
 
 ### 查看报告
 ![报告截图](imgs/报告截图.png)
+
+![实际项目报告截图](imgs/实际项目.png)
