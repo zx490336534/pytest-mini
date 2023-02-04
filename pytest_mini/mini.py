@@ -11,7 +11,7 @@ import minium
 from minium import MiniConfig, MiniAppError, MiniElementNotFoundError
 from minium.framework.minitest import init_miniprogram, reset_minium, full_reset
 
-from .constant import PROJECT_PATH, DEV_TOOL_PATH, LOG_PATH
+from .constant import Constant
 from .locator import Locator
 from .logoperator import LogOperator
 from .timeoperator import timeoperator
@@ -35,10 +35,10 @@ class Mini:
     def __init__(self, driver=None):
         # 基础配置
         self.base_config = {
-            "project_path": PROJECT_PATH,
-            "dev_tool_path": DEV_TOOL_PATH,
+            "project_path": Constant.PROJECT_PATH,
+            "dev_tool_path": Constant.DEV_TOOL_PATH,
             "auto_authorize": True,
-            "outputs": LOG_PATH,
+            "outputs": Constant().LOG_PATH,
         }
         self.page_name = ""
         if driver:

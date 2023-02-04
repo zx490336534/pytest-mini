@@ -9,14 +9,14 @@ import os
 import logging
 from logging.handlers import BaseRotatingHandler, TimedRotatingFileHandler
 from concurrent_log_handler import ConcurrentRotatingFileHandler
-from .constant import LOG_PATH
+from .constant import Constant
 from .timeoperator import timeoperator
 
 
 class LogOperator:
     sh = logging.StreamHandler()
 
-    def __init__(self, name, path=LOG_PATH, level=None, RotatingFileHandler: BaseRotatingHandler = None,
+    def __init__(self, name, path=Constant().LOG_PATH, level=None, RotatingFileHandler: BaseRotatingHandler = None,
                  isprint=None):
         log = logging.getLogger(name)
         level = 'DEBUG'

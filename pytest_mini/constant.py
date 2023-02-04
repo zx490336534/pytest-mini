@@ -4,7 +4,6 @@
 # @Time     : 2022/11/22 17:20
 # @File     : constant.py
 # @Desc     : 常量
-import inspect
 import os
 
 
@@ -18,21 +17,37 @@ def get_env(name, base=''):
     return os.getenv(name) and os.getenv(name).strip() or base
 
 
-BASE_PATH = os.path.dirname(inspect.stack()[1].filename)  # 根路径
-SRC_PATH = os.path.join(BASE_PATH, 'src')
-LOG_PATH = os.path.join(BASE_PATH, 'log')
-REPORT_PATH = os.path.join(BASE_PATH, 'report')
-TEST_PIC = os.path.join(REPORT_PATH, 'test_pic')
-TOOL_PATH = os.path.join(SRC_PATH, 'tools')
-ALLURE_TOOL_PATH = os.path.join(TOOL_PATH, 'allure-2.14.0/bin')
+class Constant:
+    BASE_PATH = ""
+    PROJECT_PATH = ""  # 待测试的小程序项目路径
+    DEV_TOOL_PATH = ""  # 微信开发者工具路径
+    ALLURE_TOOL = os.path.join(os.path.dirname(os.path.abspath(__file__)),'tools/allure-2.14.0/bin/allure')
 
-# PROJECT_PATH = get_env("project_path", "/Users/zhongxin/gitproject/design-zone-mp/dist")  # 待测试的小程序项目路径
-PROJECT_PATH = get_env("project_path", "/Users/zhongxin/gitproject/intelligentdesign/dist")  # 待测试的小程序项目路径
-DEV_TOOL_PATH = get_env("dev_tool_path", "/Applications/wechatwebdevtools.app/Contents/MacOS/cli")  # 微信开发者工具路径
+    @property
+    def SRC_PATH(self):
+        return os.path.join(Constant.BASE_PATH, 'src')
 
-for i in [LOG_PATH, REPORT_PATH, TEST_PIC]:
-    if not os.path.exists(i):
-        os.mkdir(i)
+    @property
+    def LOG_PATH(self):
+        return os.path.join(Constant.BASE_PATH, 'log')
+
+    @property
+    def REPORT_PATH(self):
+        return os.path.join(Constant.BASE_PATH, 'report')
+
+    @property
+    def TEST_PIC(self):
+        return os.path.join(self.REPORT_PATH, 'test_pic')
+
+    @property
+    def TOOL_PATH(self):
+        return os.path.join(self.SRC_PATH, 'test_pic')
+
+    def __init__(self):
+        if Constant.BASE_PATH:
+            for i in [self.LOG_PATH, self.REPORT_PATH, self.TEST_PIC]:
+                if not os.path.exists(i):
+                    os.mkdir(i)
 
 
 class USERINFO:
@@ -44,7 +59,3 @@ class USERINFO:
     # beta
     nickname = 'onlinedingzhi'
     phone = "18411632866"
-
-
-if __name__ == '__main__':
-    print(BASE_PATH)

@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pytest-mini"
-version = "0.1.11"
+version = "0.1.16"
 description = "A plugin to test mp"
 authors = ["听白 <490336534@qq.com>"]
 readme = "README.md"
