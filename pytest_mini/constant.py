@@ -49,14 +49,3 @@ class Constant:
             for i in [self.LOG_PATH, self.REPORT_PATH, self.TEST_PIC]:
                 if not os.path.exists(i):
                     os.mkdir(i)
-
-
-class USERINFO:
-    username = "onlinedingzhi@fengfei.com"
-    password = "123456"
-    # sit
-    # nickname = '客户端005'
-    # phone = "18817244832"
-    # beta
-    nickname = 'onlinedingzhi'
-    phone = "18411632866"
