@@ -7,7 +7,7 @@
 import pytest
 
 from pytest_mini import plugins
-from demo.pages.components_page import ComponentsPage
+from demo.pages import ComponentsPage
 
 pytest_plugins = plugins(
     "/Users/zhongxin/github/miniprogram-demo",  # 待测试的小程序项目路径
